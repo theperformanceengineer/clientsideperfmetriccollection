@@ -32,7 +32,7 @@ public class ClientsidePerfMetric
 			Date date = new Date();
 	        Timestamp ts=new Timestamp(date.getTime());
 	        
-			System.out.println("PR Time :"+pageLoadTime);			
+			System.out.println("PageLoadTime Time :"+pageLoadTime);			
 			System.out.println("TTFB :"+TTFB);
 			System.out.println("Customer perceived Time :"+endtoendRespTime);
 			System.out.println("timeStamp"+ts);
