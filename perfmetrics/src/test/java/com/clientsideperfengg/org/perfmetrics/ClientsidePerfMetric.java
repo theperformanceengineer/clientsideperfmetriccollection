@@ -12,8 +12,7 @@ public class ClientsidePerfMetric
 {
 		/* Pass webdriver instance and absolute filepath in which 
 		 * you want to have the Performance JSON content.*/
-	
-	
+		
 		/**
 		 * @param webdriver
 		 * @param filePath
@@ -26,14 +25,14 @@ public class ClientsidePerfMetric
 			}catch(Exception e) {e.printStackTrace();}
 			String url=webdriver.getCurrentUrl();
 			System.out.println("Current URL :"+url);
-			long renderingTime= (Long)js1.executeScript("return (window.performance.timing.loadEventEnd-window.performance.timing.responseStart)");
+			long pageLoadTime= (Long)js1.executeScript("return (window.performance.timing.loadEventEnd-window.performance.timing.responseStart)");
 			long TTFB= (Long)js1.executeScript("return (window.performance.timing.responseStart-window.performance.timing.navigationStart)");
 			long endtoendRespTime= (Long)js1.executeScript("return (window.performance.timing.loadEventEnd-window.performance.timing.navigationStart)");
 			
 			Date date = new Date();
 	        Timestamp ts=new Timestamp(date.getTime());
 	        
-			System.out.println("PR Time :"+renderingTime);			
+			System.out.println("PR Time :"+pageLoadTime);			
 			System.out.println("TTFB :"+TTFB);
 			System.out.println("Customer perceived Time :"+endtoendRespTime);
 			System.out.println("timeStamp"+ts);
@@ -42,7 +41,7 @@ public class ClientsidePerfMetric
 			JSONObject obj = new JSONObject();
 		
 			obj.put("url", url);
-			obj.put("PageRendering Time", renderingTime);
+			obj.put("PageLoad Time", pageLoadTime);
 			obj.put("TTFB", TTFB);
 			obj.put("Customer Time", endtoendRespTime);	
 			obj.put("Timestamp",ts.toString());
