@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 public class ClientsidePerfMetric
 {
 		/* Pass webdriver instance and absolute filepath in which 
-		 * you want to have the Performance JSON content*/
+		 * you want to have the Performance JSON content.*/
 	
 	
 		/**
